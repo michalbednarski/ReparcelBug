@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">ReparcelBug</string>
+    <string name="hello_world">
+        This is PoC for using <b>GateKeeperResponse</b> for making bundle
+        that changes its contents after sending it through binder
+
+        \n\nFirst button is basic test that runs both attacker code and victim code in this process
+
+        \n\nSecond button uses that bundle to bypass check in AccountManagerService that validates
+        that provided Intent opens app having same signature as caller has and then forwards Bundle
+        to other app (which unexpectedly gets another Intent after transfer, in this case pointing
+        to PlatLogoActivity)
+
+        \n\nThird button will do same trick as second, however it will start InstallAppProgress
+        Activity in Package Installer, causing installation of APK without prompting user
+        for permission (This PoC has packaged old version of AOSP ApiDemos, which will be installed,
+        uninstall ApiDemos app first if after clicking Install APK message about corrupt package
+        shows up)
+    </string>
+    <string name="in_process_test">In process test</string>
+    <string name="start_non_exported_activity">Start non-exported Activity</string>
+    <string name="install_apk">Install apk</string>
+    <string name="no_installer_component">No installer component found</string>
+</resources>
